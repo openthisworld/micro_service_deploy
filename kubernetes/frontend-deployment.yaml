@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-todo-manager-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-todo-manager-frontend
+  template:
+    metadata:
+      labels:
+        app: my-todo-manager-frontend
+    spec:
+      containers:
+        - name: my-todo-manager-frontend
+          image: your-dockerhub-username/my-todo-manager-frontend:latest
+          ports:
+            - containerPort: 80
