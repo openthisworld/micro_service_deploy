@@ -1,23 +1,30 @@
 Файловая иерархия и пояснения:
 
 
-my-app/
+my-todo-manager/
 ├── backend/
 │   ├── package.json
 │   ├── package-lock.json
 │   ├── index.js
 │   ├── db.js
 │   └── Dockerfile
-└── frontend/
-    ├── package.json
-    ├── package-lock.json
-    ├── public/
-    │   ├── index.html
-    │   └── ...
-    └── src/
-        ├── App.js
-        ├── index.js
-        └── ...
+├── frontend/
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── public/
+│   │   ├── index.html
+│   │   └── ...
+│   └── src/
+│       ├── App.js
+│       ├── index.js
+│       └── ...
+└── kubernetes/
+    ├── backend-deployment.yaml
+    ├── backend-service.yaml
+    ├── frontend-deployment.yaml
+    ├── frontend-service.yaml
+    ├── postgres-deployment.yaml
+    └── postgres-service.yaml
 
 
 backend/package.json:
