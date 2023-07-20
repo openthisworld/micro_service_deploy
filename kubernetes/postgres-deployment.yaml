@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-todo-manager-postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-todo-manager-postgres
+  template:
+    metadata:
+      labels:
+        app: my-todo-manager-postgres
+    spec:
+      containers:
+        - name: postgres
+          image: your-dockerhub-username/my-todo-manager-postgres:latest
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_USER
+              value: your-db-user
+            - name: POSTGRES_PASSWORD
+              value: your-db-password
+            - name: POSTGRES_DB
+              value: your-db-name
