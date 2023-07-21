@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: my-todo-manager-frontend
-          image: your-dockerhub-username/my-todo-manager-frontend:latest
+          image: openthisworld/my-todo-manager-frontend:latest
           ports:
             - containerPort: 80
