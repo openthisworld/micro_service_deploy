@@ -1,7 +1,7 @@
 FROM postgres:latest
 
-ENV POSTGRES_USER your-db-user
-ENV POSTGRES_PASSWORD your-db-password
-ENV POSTGRES_DB your-db-name
+ENV POSTGRES_USER openthisworld
+ENV POSTGRES_PASSWORD p@ssw0rd
+ENV POSTGRES_DB main
 
 COPY init.sql /docker-entrypoint-initdb.d/
