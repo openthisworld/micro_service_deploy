@@ -14,13 +14,13 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: your-dockerhub-username/my-todo-manager-postgres:latest
+          image: openthisworld/my-todo-manager-postgres:latest
           ports:
             - containerPort: 5432
           env:
             - name: POSTGRES_USER
-              value: your-db-user
+              value: openthisworld
             - name: POSTGRES_PASSWORD
-              value: your-db-password
+              value: p@ssw0rd
             - name: POSTGRES_DB
-              value: your-db-name
+              value: main
