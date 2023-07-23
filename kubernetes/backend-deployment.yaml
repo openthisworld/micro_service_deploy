@@ -19,4 +19,4 @@ spec:
             - containerPort: 5000
           env:
             - name: DATABASE_URL
-              value: postgresql://your-db-user:your-db-password@my-todo-manager-postgres:5432/your-db-name
+              value: postgresql://openthisworld:p@ssw0rd@my-todo-manager-postgres:5432/main
