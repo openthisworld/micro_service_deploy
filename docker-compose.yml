@@ -21,10 +21,14 @@ services:
       DATABASE_URL: postgresql://openthisworld:p@ssw0rd@postgres:5432/main
 
   frontend:
-    build:
-      context: ./frontend
-    ports:
-      - '80:80'
+      build:
+        context: ./frontend
+        args:
+          - REACT_APP_BACKEND_URL=http://backend:5000 # Передаем значение переменной окружения
+      ports:
+        - '80:80'
+      depends_on:
+        - backend
 
 
 volumes:
