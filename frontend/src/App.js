@@ -1,25 +1,35 @@
 import React, { useState, useEffect } from 'react';
+import { fetchTasks, createTask } from './api'; // Обновленный импорт
 
-function App() {
+const App = () => {
   const [tasks, setTasks] = useState([]);
+  const [newTaskText, setNewTaskText] = useState('');
 
   useEffect(() => {
-    fetch('/api/tasks') // Обращение к нашему REST API
-      .then((response) => response.json())
-      .then((data) => setTasks(data))
-      .catch((error) => console.error(error));
+    const fetchData = async () => {
+      try {
+        const tasks = await fetchTasks();
+        setTasks(tasks);
+      } catch (error) {
+        console.error('Error fetching tasks:', error);
+      }
+    };
+
+    fetchData();
   }, []);
 
-  return (
-    <div>
-      <h1>Tasks List</h1>
-      <ul>
-        {tasks.map((task) => (
-          <li key={task.id}>{task.title}</li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+  const handleAddTask = async () => {
+    try {
+      const newTask = { text: newTaskText, completed: false };
+      const createdTask = await createTask(newTask);
+      setTasks([...tasks, createdTask]);
+      setNewTaskText('');
+    } catch (error) {
+      console.error('Error creating task:', error);
+    }
+  };
+
+  // Остальной код компонента
+};
 
 export default App;

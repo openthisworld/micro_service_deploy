@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-todo-manager-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-todo-manager-backend
+  template:
+    metadata:
+      labels:
+        app: my-todo-manager-backend
+    spec:
+      containers:
+        - name: my-todo-manager-backend
+          image: openthisworld/my-todo-manager-backend:latest
+          ports:
+            - containerPort: 5000
+          env:
+            - name: DATABASE_URL
+              value: postgresql://openthisworld:p@ssw0rd@my-todo-manager-postgres:5432/main

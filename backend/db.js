@@ -1,11 +1,8 @@
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  user: 'your-db-user',
-  host: 'your-db-host',
-  database: 'your-db-name',
-  password: 'your-db-password',
-  port: 5432 // порт базы данных PostgreSQL по умолчанию
+  connectionString: process.env.DATABASE_URL || 'postgresql://openthisworld:p@ssw0rd@postgres:5432/main', // Обновленный URL подключения
+  ssl: false, // Отключаем SSL
 });
 
 module.exports = {

@@ -1,23 +1,33 @@
 Файловая иерархия и пояснения:
 
 
-my-app/
+my-todo-manager/
 ├── backend/
 │   ├── package.json
 │   ├── package-lock.json
 │   ├── index.js
 │   ├── db.js
 │   └── Dockerfile
-└── frontend/
-    ├── package.json
-    ├── package-lock.json
-    ├── public/
-    │   ├── index.html
-    │   └── ...
-    └── src/
-        ├── App.js
-        ├── index.js
-        └── ...
+├── frontend/
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── public/
+│   │   ├── index.html
+│   │   └── ...
+│   └── src/
+│       ├── App.js
+│       ├── index.js
+│       └── ...
+├── kubernetes/
+│   ├── backend-deployment.yaml
+│   ├── backend-service.yaml
+│   ├── frontend-deployment.yaml
+│   ├── frontend-service.yaml
+│   ├── postgres-deployment.yaml
+│   └── postgres-service.yaml
+└── postgres/
+    ├── Dockerfile
+    └── init.sql
 
 
 backend/package.json:
@@ -71,3 +81,7 @@ frontend/src/index.js:
     Копируем бандл, созданный на этапе сборки, в директорию nginx, которая отвечает за отдачу статического контента.
     Запускаем сервер nginx для обслуживания контента на порту 80.
     Теперь после добавления Dockerfile для Frontend, у вас будет возможность упаковать и развернуть полное микросервисное приложение в Kubernetes, используя Docker контейнеры для каждой части (Frontend, Backend и PostgreSQL).
+
+
+    Замените your-dockerhub-username, your-db-user, your-db-password и your-db-name на свои значения в каждом из этих файлов.
+
