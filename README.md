@@ -1,3 +1,6 @@
+[![Docker Deployment](https://github.com/openthisworld/micro_service_deploy/actions/workflows/deploy.yml/badge.svg)](https://github.com/openthisworld/micro_service_deploy/actions/workflows/deploy.yml)
+
+
 Файловая иерархия и пояснения:
 
 
